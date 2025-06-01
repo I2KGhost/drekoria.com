@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podcast | Drekoria</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Merriweather&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Drekoria</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">World</a></li>
+        <li><a href="#">Characters</a></li>
+        <li><a href="podcast.html">Podcast</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="podcast-page">
+    <section class="hero">
+      <h2>Chronicles of Drekoria</h2>
+      <p>The main audio story of Drekoria. Follow the journey of Vatakh, a boy raised by the wild and shaped by the shadows of a crumbling world. An immersive tale of mystery, brotherhood, and survival.</p>
+      <div class="player">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/exampleChronicles" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <section class="hero">
+      <h2>The Voice of Drekoria</h2>
+      <p>Historical insights and forgotten legends from Drekoria and beyond. A companion series uncovering real-world myths and fantasy lore to inspire the world behind the tale.</p>
+      <div class="player">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/exampleVoice" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Drekoria. All rights reserved.</p>
+  </footer>
+</body>
+</html>
