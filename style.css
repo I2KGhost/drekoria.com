@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(#121212, #1c1c1c);
+  background-color: #121212;
   font-family: 'Merriweather', serif;
   color: #e0d6c3;
   line-height: 1.6;
@@ -49,8 +49,7 @@ nav ul li a:hover {
 
 /* ======= Hero Section ======= */
 .hero {
-  background: url('https://www.transparenttextures.com/patterns/dark-wood.png') repeat;
-  background-size: cover;
+  background-color: #1a1a1a;
   padding: 4rem 2rem;
   text-align: center;
   border-top: 1px solid #444;
