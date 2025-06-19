@@ -26,7 +26,7 @@
     }
   </script>
 </head>
-<body class="bg-drek-bg text-drek-muted font-body leading-relaxed m-0">
+<body class="bg-drek-bg text-drek-muted font-body leading-relaxed m-0" data-page="podcast">
   <header class="bg-black border-b-2 border-drek-gold p-4 text-center">
     <h1 class="font-medieval text-4xl text-drek-gold m-0">Drekoria</h1>
     <nav aria-label="Main navigation">
@@ -41,16 +41,16 @@
 
   <main>
     <section class="bg-gray-900 py-16 px-4 text-center border-y border-gray-700">
-      <h2 class="font-medieval text-4xl text-drek-gold mb-4">Chronicles of Drekoria</h2>
-      <p class="max-w-2xl mx-auto text-lg">The main audio story of Drekoria. Follow the journey of Vatakh, a boy raised by the wild and shaped by the shadows of a crumbling world. An immersive tale of mystery, brotherhood, and survival.</p>
+      <h2 class="font-medieval text-4xl text-drek-gold mb-4" data-content="chronicles-title">Chronicles of Drekoria</h2>
+      <p class="max-w-2xl mx-auto text-lg" data-content="chronicles-text">The main audio story of Drekoria. Follow the journey of Vatakh, a boy raised by the wild and shaped by the shadows of a crumbling world. An immersive tale of mystery, brotherhood, and survival.</p>
       <div class="player mt-4">
         <iframe title="Chronicles of Drekoria episode" style="border-radius:12px" src="https://open.spotify.com/embed/show/exampleChronicles" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </section>
 
     <section class="bg-gray-900 py-16 px-4 text-center border-b border-gray-700">
-      <h2 class="font-medieval text-4xl text-drek-gold mb-4">The Voice of Drekoria</h2>
-      <p class="max-w-2xl mx-auto text-lg">Historical insights and forgotten legends from Drekoria and beyond. A companion series uncovering real-world myths and fantasy lore to inspire the world behind the tale.</p>
+      <h2 class="font-medieval text-4xl text-drek-gold mb-4" data-content="voice-title">The Voice of Drekoria</h2>
+      <p class="max-w-2xl mx-auto text-lg" data-content="voice-text">Historical insights and forgotten legends from Drekoria and beyond. A companion series uncovering real-world myths and fantasy lore to inspire the world behind the tale.</p>
       <div class="player mt-4">
         <iframe title="The Voice of Drekoria episode" style="border-radius:12px" src="https://open.spotify.com/embed/show/exampleVoice" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
@@ -60,5 +60,6 @@
   <footer class="bg-[#111] text-gray-400 text-center p-4 text-sm border-t-2 border-drek-gold">
     <p>&copy; 2025 Drekoria. All rights reserved.</p>
   </footer>
+  <script src="/js/site.js"></script>
 </body>
 </html>
