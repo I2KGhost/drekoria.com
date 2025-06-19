@@ -2,6 +2,7 @@ backend:
   name: github
   repo: I2KGhost/drekoria.com
   branch: main
+  app_id: Ov23li2rwPhQy32jeLym
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
