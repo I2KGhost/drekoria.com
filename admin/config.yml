@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: <your-github-username>/drekoria.com
+  repo: I2KGhost/drekoria.com
   branch: main
 
 media_folder: "assets/uploads"
