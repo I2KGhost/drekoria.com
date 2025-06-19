@@ -1,0 +1,12 @@
+{
+  "name": "drekoria-site",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "glob": "^10.3.10",
+    "htmlhint": "^1.1.4"
+  },
+  "scripts": {
+    "lint:html": "node scripts/html_check.js"
+  }
+}
