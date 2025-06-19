@@ -4,54 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drekoria | Characters</title>
-  <link rel="stylesheet" href="/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Merriweather&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'drek-bg': '#121212',
+            'drek-gold': '#d4af37',
+            'drek-muted': '#e0d6c3'
+          },
+          fontFamily: {
+            medieval: ['Uncial Antiqua', 'cursive'],
+            body: ['Merriweather', 'serif']
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-  <header>
-    <h1>Drekoria</h1>
+<body class="bg-drek-bg text-drek-muted font-body leading-relaxed m-0">
+  <header class="bg-black p-4 border-b-2 border-drek-gold text-center">
+    <h1 class="font-medieval text-4xl text-drek-gold m-0">Drekoria</h1>
     <nav>
-      <ul>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/world.html">World</a></li>
-        <li><a href="/characters.html">Characters</a></li>
-        <li><a href="/podcast.html">Podcast</a></li>
+      <ul class="list-none p-0 mt-4 flex flex-col sm:flex-row justify-center flex-wrap gap-4">
+        <li><a class="no-underline text-drek-muted py-2 px-4 border border-drek-gold rounded hover:bg-drek-gold hover:text-black transition-colors" href="/index.html">Home</a></li>
+        <li><a class="no-underline text-drek-muted py-2 px-4 border border-drek-gold rounded hover:bg-drek-gold hover:text-black transition-colors" href="/world.html">World</a></li>
+        <li><a class="no-underline text-drek-muted py-2 px-4 border border-drek-gold rounded hover:bg-drek-gold hover:text-black transition-colors" href="/characters.html">Characters</a></li>
+        <li><a class="no-underline text-drek-muted py-2 px-4 border border-drek-gold rounded hover:bg-drek-gold hover:text-black transition-colors" href="/podcast.html">Podcast</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <h2>Characters of Drekoria</h2>
-      <p>Meet the key figures whose choices shape the fate of the known world.</p>
+    <section class="bg-gray-900 py-16 px-8 text-center border-y border-gray-700">
+      <h2 class="font-medieval text-3xl text-yellow-300 mb-4">Characters of Drekoria</h2>
+      <p class="max-w-2xl mx-auto text-lg">Meet the key figures whose choices shape the fate of the known world.</p>
     </section>
 
-    <section class="content">
-      <div class="character-card">
-        <h3>Vatah</h3>
+    <section class="px-8 py-12 grid gap-8 max-w-4xl mx-auto">
+      <div class="bg-gray-800 p-4 rounded border border-gray-700">
+        <h3 class="font-medieval text-2xl text-drek-gold mb-2">Vatah</h3>
         <p>A boy raised in the wild, now caught between destiny and survival. Trained in the fortress of Velstone.</p>
       </div>
 
-      <div class="character-card">
-        <h3>Dalemir</h3>
+      <div class="bg-gray-800 p-4 rounded border border-gray-700">
+        <h3 class="font-medieval text-2xl text-drek-gold mb-2">Dalemir</h3>
         <p>A hunter with a mysterious past. Stoic, wise, and the one who raised Vatah.</p>
       </div>
 
-      <div class="character-card">
-        <h3>Lev</h3>
+      <div class="bg-gray-800 p-4 rounded border border-gray-700">
+        <h3 class="font-medieval text-2xl text-drek-gold mb-2">Lev</h3>
         <p>A young blacksmith’s apprentice and Vatah’s only true friend. Loyal and brave.</p>
       </div>
 
-      <div class="character-card">
-        <h3>Marek</h3>
+      <div class="bg-gray-800 p-4 rounded border border-gray-700">
+        <h3 class="font-medieval text-2xl text-drek-gold mb-2">Marek</h3>
         <p>Ambitious and proud. Once an ally, now a rival within the brotherhood.</p>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="bg-[#111] text-gray-400 text-center p-4 text-sm border-t-2 border-drek-gold">
     <p>&copy; 2025 Drekoria. All rights reserved.</p>
   </footer>
 </body>
