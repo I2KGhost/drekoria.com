@@ -1,12 +1,19 @@
 {
-  "name": "drekoria-site",
-  "version": "1.0.0",
+  "name": "drekoria.com",
+  "version": "0.0.1",
+  "type": "module",
   "private": true,
-  "devDependencies": {
-    "glob": "^10.3.10",
-    "htmlhint": "^1.1.4"
-  },
   "scripts": {
-    "lint:html": "node scripts/html_check.js"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "astro check"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.13"
+  },
+  "devDependencies": {
+    "astro": "^4.10.0",
+    "typescript": "^5.4.5"
   }
 }
