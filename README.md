@@ -1,15 +1,51 @@
-# drekoria.com
+# Drekoria (Astro Edition)
 
-A static website exploring the fantasy realm of Drekoria. The site includes lore pages, character descriptions and a podcast section, all styled with Tailwind CSS and enhanced by a small JavaScript file.
+Един напълно нов старт за проекта, изграден с [Astro](https://astro.build). Репозиторият съдържа
+една статична страница, която приема имейл адреси и изпраща автоматично потвърждение чрез SMTP
+сървър.
 
-## File structure
-- `index.html` – main landing page
-- `world.html` – setting and lore information
-- `characters.html` – character bios
-- `podcast.html` – episodes and show notes
-- `data/` – JSON data for navigation and page content
-- `js/` – JavaScript used to load data and set up the navigation
-- `admin/` – Netlify CMS configuration
+## Как да стартираш проекта локално
 
-## Local preview
-Open `index.html` in your browser. No additional build steps are needed.
+1. Инсталирай зависимостите:
+
+   ```bash
+   npm install
+   ```
+
+2. Създай `.env` файл на базата на `.env.example` и попълни данните за твоя SMTP сървър.
+
+3. Стартирай Astro в режим за разработка:
+
+   ```bash
+   npm run dev
+   ```
+
+   По подразбиране приложението ще бъде достъпно на http://localhost:4321.
+
+4. Подай имейл чрез формата и провери пощата си за потвърждение.
+
+## Деплой и среди
+
+- Страницата е статична, но се нуждае от serverless/SSR среда за да работи API маршрута
+  (`/api/subscribe`). В повечето платформи като Vercel, Netlify или Cloudflare Pages това ще
+  работи без допълнителна конфигурация.
+- Увери се, че задаваш същите SMTP променливи на средата при деплой.
+
+## Настройки на SMTP
+
+| Променлива                     | Описание                                                                 |
+| ------------------------------ | ------------------------------------------------------------------------ |
+| `SMTP_HOST`                    | Хост на SMTP сървъра.                                                    |
+| `SMTP_PORT`                    | Порт (обикновено 587 за TLS или 465 за SSL).                             |
+| `SMTP_SECURE`                  | `true` за SSL (порт 465), `false` за STARTTLS (порт 587).                |
+| `SMTP_USER` / `SMTP_PASSWORD`  | Данните за достъп до пощенската кутия.                                   |
+| `SUBSCRIPTION_FROM_EMAIL`      | Имейл адрес, който ще се вижда като изпращач.                            |
+| `SUBSCRIPTION_SITE_NAME`       | Име на проекта, използвано в съдържанието на писмото (по избор).         |
+
+## Линтове и проверки
+
+```bash
+npm run lint
+```
+
+Командата използва `astro check` и валидира както TypeScript, така и съдържанието на страниците.

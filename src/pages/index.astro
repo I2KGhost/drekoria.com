@@ -1,0 +1,203 @@
+---
+const title = 'Drekoria — Нова концепция';
+const description = 'Една страница, която събира имейл адреси и изпраща незабавно потвърждение.';
+---
+
+<html lang="bg">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: radial-gradient(circle at top, #1f2937, #0f172a 55%);
+        color: #f8fafc;
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      main {
+        width: min(520px, 100%);
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        border-radius: 24px;
+        padding: clamp(2rem, 5vw, 3rem);
+        box-shadow: 0 24px 72px rgba(15, 23, 42, 0.6);
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 4vw, 3rem);
+        margin: 0 0 1rem;
+        line-height: 1.2;
+      }
+
+      p {
+        margin: 0 0 1.5rem;
+        color: rgba(226, 232, 240, 0.85);
+        line-height: 1.6;
+      }
+
+      form {
+        display: grid;
+        gap: 1rem;
+      }
+
+      label {
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      input[type='email'] {
+        width: 100%;
+        font: inherit;
+        padding: 0.9rem 1rem;
+        border-radius: 12px;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        background: rgba(15, 23, 42, 0.6);
+        color: inherit;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      input[type='email']:focus {
+        outline: none;
+        border-color: rgba(94, 234, 212, 0.8);
+        box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.25);
+      }
+
+      button {
+        appearance: none;
+        border: none;
+        border-radius: 12px;
+        padding: 0.9rem 1.5rem;
+        font: inherit;
+        font-weight: 600;
+        background: linear-gradient(135deg, #14b8a6, #6366f1);
+        color: white;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 24px rgba(79, 70, 229, 0.35);
+        filter: brightness(1.05);
+      }
+
+      button:disabled {
+        opacity: 0.6;
+        cursor: wait;
+        transform: none;
+        box-shadow: none;
+      }
+
+      .status {
+        min-height: 1.5rem;
+        font-size: 0.95rem;
+        color: rgba(94, 234, 212, 0.95);
+      }
+
+      .status--error {
+        color: rgba(248, 113, 113, 0.95);
+      }
+
+      footer {
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+        color: rgba(148, 163, 184, 0.7);
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 1.5rem;
+        }
+
+        main {
+          padding: 1.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Нова ера за Drekoria</h1>
+      <p>
+        Стартираме от чист лист с изцяло нова концепция. Остави ни своя имейл адрес и ще ти
+        изпратим потвърждение, че си в списъка, както и всички бъдещи новини.
+      </p>
+      <form id="subscribe-form" method="post" action="/api/subscribe" novalidate>
+        <div>
+          <label for="email">Имейл адрес</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            inputmode="email"
+            autocomplete="email"
+            placeholder="ime@example.com"
+            required
+          />
+        </div>
+        <button type="submit">Добави ме в списъка</button>
+        <p id="status-message" class="status" role="status" aria-live="polite"></p>
+      </form>
+      <footer>
+        Имейлите се изпращат автоматично чрез конфигурирания SMTP сървър. Настрой го в
+        <code>.env</code> файла.
+      </footer>
+    </main>
+
+    <script type="module">
+      const form = document.querySelector('#subscribe-form');
+      const status = document.querySelector('#status-message');
+
+      if (form && status) {
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          status.textContent = '';
+          status.classList.remove('status--error');
+          const submitButton = form.querySelector('button[type="submit"]');
+          if (submitButton) {
+            submitButton.disabled = true;
+          }
+
+          try {
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form)
+            });
+
+            const payload = await response.json();
+
+            if (payload.success) {
+              status.textContent = 'Готово! Провери пощата си за потвърждение.';
+              form.reset();
+            } else {
+              status.textContent = payload.message ?? 'Имаше проблем. Опитай отново.';
+              status.classList.add('status--error');
+            }
+          } catch (error) {
+            console.error(error);
+            status.textContent = 'Сървърът не отговаря в момента. Опитай отново след малко.';
+            status.classList.add('status--error');
+          } finally {
+            if (submitButton) {
+              submitButton.disabled = false;
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
