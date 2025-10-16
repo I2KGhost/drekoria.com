@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/your_form_id";
+---
+<BaseLayout title="Join the League of Explorers | Drekoria">
+  <div class="card center" aria-labelledby="title">
+    <h1 id="title">Join the League of Explorers</h1>
+    <p class="subtitle">Those who seek the forgotten preserve the truth. Begin your journey below.</p>
+
+    <form action={FORMSPREE_ENDPOINT} method="POST">
+      <input type="email" name="email" placeholder="Enter your email address" required />
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+      <input type="hidden" name="_redirect" value="https://drekoria.com/welcome" />
+      <button type="submit">Apply for Initiation</button>
+    </form>
+
+    <p class="note"><em>Upon joining, you will receive your official <strong>Explorer’s Starter Kit</strong> — the same document given to every new member of the League.</em></p>
+    <p class="fine">By applying you agree to receive project updates from Drekoria. You can unsubscribe anytime.</p>
+  </div>
+</BaseLayout>
