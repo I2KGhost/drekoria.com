@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const KIT_URL = "/Explorer_Starter_Kit.pdf";
+---
+<BaseLayout title="Welcome to the League | Drekoria">
+  <div class="card center">
+    <h1>Welcome, Initiate.</h1>
+    <p class="subtitle">Your registration has been received. The archives have been opened.</p>
+    <p class="note">Download your official <strong>Explorer’s Starter Kit</strong> below. A copy will also be sent via email when our archives register your entry.</p>
+    <p style="margin:18px 0;">
+      <a class="link" href={KIT_URL} download>Download Explorer’s Starter Kit (PDF)</a>
+    </p>
+    <p class="fine">If the download doesn’t start, right-click the link and choose “Save link as…”.</p>
+  </div>
+</BaseLayout>
